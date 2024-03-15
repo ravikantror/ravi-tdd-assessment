@@ -25,5 +25,9 @@ RSpec.describe StringCalculator do
     it "handle the sum of numbers separated by any delimiter" do
       expect(StringCalculator.add("//;\n1;2")).to eq(3)
     end
+
+    it "throw an exception with negative numbers" do
+      expect { StringCalculator.add("1,-2,3,-4,5") }.to raise_error("Negatives not allowed: -2, -4")
+    end
   end
 end
