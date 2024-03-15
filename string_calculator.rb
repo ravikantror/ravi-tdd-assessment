@@ -14,6 +14,7 @@ class StringCalculator
       raise "Negatives not allowed: #{negatives.join(', ')}"
     end
 
-    numbers.split(/[#{delimiter}\n]/).map(&:to_i).sum
+    numbers.split(/[#{delimiter}\n]/).map(&:to_i).select { |num| num <= 1000 }.sum
+
   end
 end
