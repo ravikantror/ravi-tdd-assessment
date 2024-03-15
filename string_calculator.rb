@@ -4,7 +4,12 @@ class StringCalculator
 
     delimiter = ','
     if numbers.start_with?("//")
-      delimiter = numbers[2]
+      delimiter_match = numbers.match(/\/\/\[(.*?)\]\n/)
+      if delimiter_match
+        delimiter = delimiter_match[1]
+      else
+        delimiter = numbers[2]
+      end
       numbers = numbers.split("\n", 2)[1]
     end
 
